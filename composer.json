@@ -1,0 +1,6 @@
+{
+    "require": {
+        "slim/slim": "3.0",
+        "nicolask/slimmer-pdo": "~1.10"
+    }
+}

@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+
+  web:
+    build: .
+    restart: always
+    ports:
+    - 80:80
+    volumes:
+    - ./src/public:/usr/src/myapp/src/public
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./logs:/var/log/mysql
+  adminer:
+    image: adminer
+    ports:
+    - 8090:8080
